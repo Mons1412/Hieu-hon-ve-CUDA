@@ -1,0 +1,7 @@
+# Pinned to the project's currently installed Python environment.
+fastapi==0.162.0
+uvicorn==0.54.0
+chromadb==1.5.9
+ollama==0.6.3
+PyMuPDF==2.0
+pydantic==2.14.1

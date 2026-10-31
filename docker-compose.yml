@@ -1,0 +1,18 @@
+# Linux-only local setup: host network reuses Ollama at 127.0.0.1:11434.
+# Do not publish this service to a public network.
+services:
+  cuda-rag:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    network_mode: host
+    user: "1000:1000"
+    environment:
+      OLLAMA_HOST: "http://127.0.0.1:11434"
+      CUDA_RESPONSE_GATE: "0"  # experimental; use 1 only when intentionally testing
+      PYTHONUNBUFFERED: "1"
+    volumes:
+      - ./chroma_db:/app/chroma_db
+      - ./docs/pdf:/app/docs/pdf:ro
+    restart: "no"
+    command: ["python", "-m", "uvicorn", "web_ui:app", "--host", "127.0.0.1", "--port", "8012"]
