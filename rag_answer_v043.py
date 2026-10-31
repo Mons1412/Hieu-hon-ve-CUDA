@@ -7,8 +7,8 @@ from pdf_rag import LLM_MODEL, ABSTAIN_TEXT, validate_answer
 
 class Draft(BaseModel):
     status: Literal["ANSWER", "ABSTAIN"]
-    text: str = Field(default="", max_length=350)
-    source_id: int | None = None
+    text: str = Field(..., max_length=350)
+    source_id: int | None = Field(...)
 
 
 def generate_answer(question: str, sources: list[dict]):
