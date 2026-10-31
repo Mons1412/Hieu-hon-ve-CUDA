@@ -101,3 +101,22 @@ Created EVALUATION_REPORT.md.
 Next task:
 Expand the evaluation dataset and improve
 answer faithfulness before Multi-Document RAG.
+
+## Golden Dataset v0.6.1
+
+Created:
+- create_golden_dataset.py
+- golden_candidates_v061.csv
+
+Dataset:
+20 candidate questions across 5 categories.
+
+Status:
+All entries require manual verification.
+
+Retrieval:
+Top-4 results can be exported for review.
+
+Next:
+Verify reference answers and PDF evidence,
+then calculate meaningful evaluation metrics.
