@@ -6,6 +6,7 @@ Run from the project root after copying to api.py:
     uvicorn api:app --host 127.0.0.1 --port 8000
 """
 
+import os
 from collections import defaultdict
 from functools import lru_cache
 from urllib.error import URLError
@@ -222,6 +223,7 @@ def generate_answer(question: str, sources: list[dict]):
     return "INVALID", None, last_error
 
 from rag_answer_v043 import generate_answer
+from api_gate_v095 import apply_to_api
 
 @app.get("/health/live")
 def liveness():
@@ -300,7 +302,7 @@ def chat_endpoint(request: ChatRequest):
         state, answer, reason = generate_answer(question, sources)
     except Exception as exc:
         raise HTTPException(status_code=502, detail=f"Ollama inference failed: {type(exc).__name__}: {exc}") from exc
-    return {
+    result = {
         "question": question,
         "status": state,
         "answer": answer,
@@ -309,3 +311,6 @@ def chat_endpoint(request: ChatRequest):
         "format_validated": state == "ANSWER",
         "fact_verified": False,
     }
+    if os.getenv("CUDA_RESPONSE_GATE", "0") == "1":
+        return apply_to_api(question, result)
+    return result
