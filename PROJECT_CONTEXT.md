@@ -76,3 +76,28 @@ Known issues:
 Next:
 Review evaluation results and improve factual
 grounding based on measured failure cases.
+
+## Evaluation Results — 2026-10-31
+
+Commit: 353bd23
+
+Retrieval Hit@4: 2/2
+Status Match: 3/3
+
+Bank Conflicts:
+ANSWER, partially correct explanation.
+
+Matrix Multiplication:
+ANSWER, correct main idea.
+
+Control Flow:
+ABSTAIN, requires further review.
+
+Out-of-Scope:
+ABSTAIN, correct.
+
+Created EVALUATION_REPORT.md.
+
+Next task:
+Expand the evaluation dataset and improve
+answer faithfulness before Multi-Document RAG.
