@@ -141,3 +141,26 @@ cuda_pdf_section_v07
 Next:
 Review section metadata and compare retrieval
 on the same document scope.
+
+## Section-Aware Indexing v0.7.2
+
+Fixed:
+- Optional trailing dot in section headings
+- Missing chapter headings
+- Bandwidth values incorrectly parsed as headings
+
+Results:
+- 165 candidate chunks
+- 63 recognized section labels
+- Unknown chunks reduced from 32 to 2
+- Section 4.1.3.3 reduced from 58 to 4 chunks
+
+Critical pages:
+19, 33, 42, 53 — PASS
+
+New collection:
+cuda_pdf_section_v072
+
+Next:
+Compare retrieval quality against cuda_pdf_v03
+using manually verified reference evidence.
