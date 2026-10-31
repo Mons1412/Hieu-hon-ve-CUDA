@@ -120,3 +120,24 @@ Top-4 results can be exported for review.
 Next:
 Verify reference answers and PDF evidence,
 then calculate meaningful evaluation metrics.
+
+## Section-Aware Indexing v0.7.1
+
+Previous issue:
+Section heading regex treated bandwidth numbers
+such as 144.4, 195.5 and 199.4 as section IDs.
+
+Fix:
+Restricted heading recognition and excluded
+common bandwidth/frequency units.
+
+New collection:
+cuda_pdf_section_v071
+
+Old collections preserved:
+cuda_pdf_v03
+cuda_pdf_section_v07
+
+Next:
+Review section metadata and compare retrieval
+on the same document scope.
