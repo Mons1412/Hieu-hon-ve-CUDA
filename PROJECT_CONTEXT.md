@@ -14,3 +14,19 @@ rag_answer_v043.py.
 Next:
 Verify actual LLM response contains nonempty text.
 Then evaluate technical accuracy and citation quality.
+
+## Latest Structured Output Test
+
+Qwen2.5 3B previously returned a one-word answer:
+{"status":"ANSWER","text":"Không","source_id":1}
+
+The answer validator correctly rejected it for being too short.
+
+Updated rag_answer_v043.py:
+- Require minimum 40 characters for text.
+- Ask for a complete explanation.
+- Improve diagnostic reasons for invalid output.
+- Increase generation token allowance.
+
+Next:
+Evaluate answer quality and retrieval faithfulness.

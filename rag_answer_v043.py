@@ -7,7 +7,7 @@ from pdf_rag import LLM_MODEL, ABSTAIN_TEXT, validate_answer
 
 class Draft(BaseModel):
     status: Literal["ANSWER", "ABSTAIN"]
-    text: str = Field(..., max_length=350)
+    text: str = Field(..., min_length=40, max_length=350)
     source_id: int | None = Field(...)
 
 
@@ -21,9 +21,9 @@ def generate_answer(question: str, sources: list[dict]):
         "You are a CUDA technical assistant. "
         "Answer ONLY from EVIDENCE. Return JSON matching schema. "
         "If evidence answers the question, choose ANSWER. "
-        "Write ONE short, accurate Vietnamese sentence in text. "
+        "Write ONE complete Vietnamese explanation of 20 to 45 words in text. "
         "Choose the supporting source_id from 1 to 4. "
-        "For yes/no questions, begin with Có or Không. "
+        "For yes/no questions, begin with Có or Không, then explain why. Never answer with only one word. "
         "Do not copy quotations or citation markers. "
         "Choose ABSTAIN only if no passage supports an answer. "
         "For ABSTAIN, set text='' and source_id=null. "
@@ -59,7 +59,7 @@ def generate_answer(question: str, sources: list[dict]):
             format=Draft.model_json_schema(),
             options={
                 "temperature": 0,
-                "num_predict": 220
+                "num_predict": 320
             }
         )
 
@@ -68,7 +68,7 @@ def generate_answer(question: str, sources: list[dict]):
                 response.message.content
             )
         except (ValidationError, ValueError):
-            reason = "Invalid JSON/schema"
+            reason = "Invalid JSON/schema or short text: " + response.message.content[:160].replace("\n", " ")
             continue
 
         if draft.status == "ABSTAIN":
