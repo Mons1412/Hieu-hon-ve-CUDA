@@ -55,3 +55,24 @@ explanations even with valid citations.
 Next step:
 Evaluate retrieval, answer accuracy, faithfulness,
 and abstention behavior before adding more documents.
+
+## RAG Evaluation v0.6
+
+Added evaluate_rag.py.
+
+Evaluation includes:
+- Retrieval Hit@4
+- Expected answer status
+- Out-of-scope question
+- JSON result export
+- Manual faithfulness review CSV
+
+Known issues:
+- Bank Conflict answer incorrectly attributes
+  hardware conflict handling to Shared Memory.
+- Matrix Multiplication answer sometimes confuses
+  uncoalesced memory access with asynchronous access.
+
+Next:
+Review evaluation results and improve factual
+grounding based on measured failure cases.
