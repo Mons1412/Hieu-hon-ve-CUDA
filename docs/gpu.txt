@@ -1,0 +1,7 @@
+CPU và GPU có kiến trúc và mục tiêu tối ưu khác nhau.
+
+CPU thường có số lượng lõi xử lý ít hơn nhưng phù hợp với nhiều loại tác vụ tuần tự và điều khiển phức tạp.
+
+GPU có khả năng thực hiện nhiều phép tính song song. Trong CUDA, lập trình viên sử dụng kernel để mô tả công việc chạy trên GPU NVIDIA.
+
+CUDA Thread được tổ chức thành Block và Grid.

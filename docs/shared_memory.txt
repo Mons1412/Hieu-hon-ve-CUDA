@@ -1,0 +1,5 @@
+Shared Memory trong CUDA là vùng bộ nhớ trên GPU được các thread trong cùng một block chia sẻ.
+
+Shared Memory thường có độ trễ thấp hơn Global Memory. Trong phép nhân ma trận, các thread có thể tải dữ liệu từ Global Memory vào Shared Memory, sau đó tái sử dụng dữ liệu này để giảm số lần truy cập Global Memory.
+
+Khi nhiều thread cùng sử dụng dữ liệu được ghi vào Shared Memory, lập trình viên có thể cần sử dụng __syncthreads() để đồng bộ các thread.

@@ -1,0 +1,7 @@
+Dự án CUDA Matrix Multiplication Optimizer có mục tiêu tối ưu phép nhân ma trận trên GPU NVIDIA.
+
+CPU baseline đã được triển khai bằng C++. Với ma trận kích thước N=256, kết quả benchmark trung bình là 14.1389 ms và throughput đạt 2.3732 GFLOPS trong cấu hình thử nghiệm đã ghi nhận.
+
+Lộ trình tối ưu gồm: CPU Reference, Naive CUDA Kernel, Shared Memory, Tiling, Optimized Kernel, Benchmark và Profiling.
+
+Hiện tại dự án đã hoàn thành CPU baseline nhưng chưa có benchmark thực tế trên GPU NVIDIA.

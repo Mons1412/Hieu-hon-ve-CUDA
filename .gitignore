@@ -1,0 +1,28 @@
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Secrets
+.env
+.env.*
+*.pem
+*.key
+
+# Local data
+chroma_db/
+*.db
+*.sqlite
+*.sqlite3
+*.pdf
+*.zip
+*.gguf
+*.log
+
+# Backups
+*backup*.py
+
+# Temporary files
+.pytest_cache/

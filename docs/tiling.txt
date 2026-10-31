@@ -1,0 +1,7 @@
+Tiling là kỹ thuật chia phép nhân ma trận lớn thành các ô ma trận nhỏ hơn gọi là tiles.
+
+Trong CUDA Matrix Multiplication, mỗi thread block có thể xử lý một tile của ma trận kết quả.
+
+Các phần dữ liệu cần thiết từ hai ma trận đầu vào có thể được tải vào Shared Memory để nhiều thread tái sử dụng.
+
+Tiling giúp giảm truy cập Global Memory dư thừa và có thể cải thiện hiệu năng phép nhân ma trận nếu được triển khai và tối ưu phù hợp.
