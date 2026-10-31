@@ -164,3 +164,28 @@ cuda_pdf_section_v072
 Next:
 Compare retrieval quality against cuda_pdf_v03
 using manually verified reference evidence.
+
+## Section-Aware Indexing v0.7.3
+
+Implemented chapter-aware PDF indexing.
+
+Results:
+- 164 indexed chunks
+- 71 recognized section labels
+- 0 unknown chunks
+
+Validation:
+- Chapter Detection: PASS
+- Section Metadata Regression: PASS
+- Chunk ID Uniqueness: PASS
+
+Collection:
+cuda_pdf_section_v073
+
+Baseline:
+cuda_pdf_v03 — 177 chunks
+
+Remaining:
+- Compare retrieval results
+- Verify golden dataset
+- Evaluate answer faithfulness
