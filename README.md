@@ -148,3 +148,8 @@ See `EVALUATION_REPORT.md`, `PROJECT_CONTEXT.md`, and the evaluation scripts for
 
 **Repository:** `Mons1412/Hieu-hon-ve-CUDA`  
 **Scope:** Educational CUDA documentation assistant; AI output requires verification against source material.
+
+## Deployment Guides
+
+- [Docker Verification](docs/DOCKER_VERIFICATION.md)
+- [Ubuntu Troubleshooting](docs/UBUNTU_TROUBLESHOOTING.md)
